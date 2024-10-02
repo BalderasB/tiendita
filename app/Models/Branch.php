@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Branch extends Model
 {
     use HasFactory;
+
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function products(){
+        return $this->belongsToMany(Product::class);
+    }
+
+    public function suppliers(){
+        return $this->belongsToMany(Supplier::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }

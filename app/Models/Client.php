@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+
+    //relacion uno amuchos
+    public function tickets(){
+        return $this->hasMany(Ticket::class);
+    }
 }
