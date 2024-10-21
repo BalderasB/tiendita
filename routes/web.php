@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Catalogo\CreateCategory;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,6 +14,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+      return view('dashboard');
     })->name('dashboard');
+    //Route::get('/dashboard', CreateCategory::class)->name('dashboard');
 });
+
+Route::get('/data', function(){
+    $products = Product::all();
+    return $products;
+});
+
